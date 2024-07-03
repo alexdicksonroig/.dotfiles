@@ -1,8 +1,3 @@
-
-# tactiq.io free youtube transcript
-# Auckland Clip 4: On Cain and Abel
-# https://www.youtube.com/watch/6bHX5W55Fdw
-
 00:00:00.060 The next story, one of Cain and Abel, and it plays on that because in a very interesting way because
 00:00:06.549 It indicates what happens and I would say it it
 00:00:11.080 What supports my general hypothesis about what the first story means because what happens with Cain and Abel?
