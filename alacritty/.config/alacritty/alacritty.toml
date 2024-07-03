@@ -1,0 +1,16 @@
+import = [
+	"~/.config/alacritty/themes/themes/alabaster_dark.toml"
+]
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal.family = "MesloLGS Nerd Font Mono"
+
+size = 13
+
+[keyboard]
+bindings = [
+  { key = "w", mods = "Control", chars = "\u001BF" },
+  { key = "b",  mods = "Control", chars = "\u001BB" }
+]
