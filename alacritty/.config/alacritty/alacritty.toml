@@ -9,6 +9,10 @@ normal.family = "MesloLGS Nerd Font Mono"
 
 size = 13
 
+[window]
+opacity = 0.8
+blur = true
+
 [keyboard]
 bindings = [
   { key = "w", mods = "Control", chars = "\u001BF" },
