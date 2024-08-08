@@ -24,12 +24,22 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom
 bindkey "^R" history-incremental-search-backward
 bindkey "\e[A" history-beginning-search-backward
 bindkey "\e[B" history-beginning-search-forward
+# Example
+myCustomWidget() {
+  tmux-sessionizer
+}
+zle -N myCustomWidget
 
+# bind to control + O
+bindkey "^f" myCustomWidget
 bindkey -s ^f "tmux-sessionizer\n"
+alias macro="sudo kmonad ./kmonad.kbd"
 
 alias nocors="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security"
 alias vim="nvim +only -o"
 alias vi="nvim +only -o"
+alias gdi='git diff'
+alias gds='git diff --staged'
 alias gd='gitdick'
 alias sc='source ~/.zshrc; echo "Zsh sourced!"'
 alias gas='git add . && git stash'
@@ -60,6 +70,10 @@ alias dl="docker ps -l -q"
 alias dx="docker exec -it"
 alias ls="ls -la"
 
+# Python
+alias py="python3"
+alias m="python3 manage.py"
+
 # Go
 alias air='$(go env GOPATH)/bin/air'
 autoload -U compinit && compinit
@@ -70,3 +84,4 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 [ -f "/Users/alexdickson2/.ghcup/env" ] && . "/Users/alexdickson2/.ghcup/env" # ghcup-env
+
