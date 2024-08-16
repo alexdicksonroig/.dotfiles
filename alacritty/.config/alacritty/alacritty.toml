@@ -1,5 +1,11 @@
+[window]
+startup_mode = 'Maximized'
+
 [font]
 normal.family = "MesloLGS Nerd Font Mono"
+
+[selection]
+save_to_clipboard = true
 
 [keyboard]
 bindings = [

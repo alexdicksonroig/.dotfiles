@@ -50,8 +50,18 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				layout_config = {
 					vertical = { width = 0.8 },
 				},
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+					"--hidden",
+				},
 			},
-			-- pickers = {}
+			pickers = { find_files = { follow = true , hidden = true } },
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
@@ -75,7 +85,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-
+		vim.keymap.set({"n", "x"}, "<leader>rr", function() require('telescope').extensions.refactoring.refactors() end
+)
 		-- Slightly advanced example of overriding default behavior and theme
 		vim.keymap.set("n", "<leader>/", function()
 			-- You can pass additional configuration to Telescope to change the theme, layout, etc.
