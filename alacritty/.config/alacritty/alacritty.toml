@@ -3,7 +3,7 @@ startup_mode = 'Maximized'
 
 [font]
 normal.family = "MesloLGS Nerd Font Mono"
-size = 6
+size = 14
 
 [selection]
 save_to_clipboard = true
