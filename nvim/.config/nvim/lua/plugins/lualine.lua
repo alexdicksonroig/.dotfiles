@@ -9,8 +9,7 @@ return {
                 component_separators = { '', '' },
             },
             sections = {
-                lualine_a = {
-                    { 'mode', fmt = function(str) return str:sub(1,1) end } }, 
+                lualine_a = { 'mode' }, 
                 lualine_b = { 'branch' },
                 lualine_c = { 'filename' },
                 lualine_x = { 'encoding', 'fileformat', 'filetype' },
