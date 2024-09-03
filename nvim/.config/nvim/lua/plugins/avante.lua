@@ -6,7 +6,7 @@ return {
     -- add any opts here
     mappings = {
     submit = {
-        insert = "<C-n>",
+        insert = "<CR>",
       }}
   },
   build = ":AvanteBuild", -- This is optional, recommended tho. Also note that this will block the startup for a bit since we are compiling bindings in Rust.

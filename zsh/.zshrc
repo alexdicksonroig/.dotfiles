@@ -1,4 +1,4 @@
-# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+export ANTHROPIC_API_KEY='sk-ant-api03-oqet8ngwSqejIa2w4IDzOF_9AU8j4JcCL8FTOnPutPrBND76IdbgJ0zn1n1QQG30p040R6UkDDHBcxOXhwxrZw-sVdnSwA'
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -14,6 +14,19 @@
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Custom prompt line
+kmonad="kmonad"
+ENABLE_MACROS=true
+if [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s 0
+fi
+
+if [[ -z $(pgrep kmonad) && $ENABLE_MACROS = true ]]; then
+  if ! tmux has-session -t=$kmonad  2> /dev/null; then
+    tmux new-session -d -s $kmonad
+  fi
+  tmux send-keys -t $kmonad "sudo kmonad ./kmonad.kbd" Enter
+fi
+
 autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '

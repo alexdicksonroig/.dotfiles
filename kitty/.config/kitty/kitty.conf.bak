@@ -125,7 +125,7 @@
 #:     $ kitty +list-fonts --psnames | grep Fira
 #:     Fira Code
 #:     Fira Code Bold (FiraCode-Bold)
-#:     Fira Code Light (FiraCode-Light)
+:     Fira Code Light (FiraCode-Light)
 #:     Fira Code Medium (FiraCode-Medium)
 #:     Fira Code Regular (FiraCode-Regular)
 #:     Fira Code Retina (FiraCode-Retina)
@@ -820,7 +820,7 @@
 #: to be pts. Note that borders are displayed only when more than one
 #: window is visible. They are meant to separate multiple windows.
 
-# draw_minimal_borders yes
+# draw_minimal_borders no
 
 #: Draw only the minimum borders needed. This means that only the
 #: borders that separate the window from a neighbor are drawn. Note
@@ -2507,6 +2507,6 @@ kitty_mod alt
 
 
 # BEGIN_KITTY_THEME
-# Black Metal
+# Default
 include current-theme.conf
 # END_KITTY_THEME
