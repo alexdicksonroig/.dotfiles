@@ -2,5 +2,10 @@
     undo = reset --soft HEAD^
     ignore = update-index --skip-worktree
     unignore = update-index --no-skip-worktree
+
 [push]
     autoSetupRemote = true
+
+[core]
+    pager = delta
+

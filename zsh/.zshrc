@@ -1,4 +1,5 @@
 export ANTHROPIC_API_KEY='sk-ant-api03-oqet8ngwSqejIa2w4IDzOF_9AU8j4JcCL8FTOnPutPrBND76IdbgJ0zn1n1QQG30p040R6UkDDHBcxOXhwxrZw-sVdnSwA'
+export KITTY_CONFIG_DIRECTORY='$HOME/.config/kitty/'
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.

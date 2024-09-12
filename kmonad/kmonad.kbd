@@ -27,7 +27,7 @@ fn  lalt lmet           spc            rmet ralt left down rght
   custom0 (layer-toggle ly1)
   custom1 (tap-hold 130 (around-next-single sft) ctl)
   custom2 (layer-toggle ly2)
-  custom3 (tap-hold 200 (around lmet tab) lctl)
+  custom3 (tap-hold 150 @shiftNext sft)
   custom4 (around lmet (around sft c))
   ly2andShift (tap-hold 150 @shiftNext @custom2)
   fn (around (layer-toggle function) fn)
@@ -38,7 +38,7 @@ fn  lalt lmet           spc            rmet ralt left down rght
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   lctl    _    _    _    _    _    _    _    _    _    _    _    _
-  _ _    _    _    _    _    _    _    _    _    _    _    _
+  @custom3 _    _    _    _    _    _    _    _    _    _    _    _
   @fn   _    _      _              @ly2andShift    _   _ _    _)
 
 (deflayer function
