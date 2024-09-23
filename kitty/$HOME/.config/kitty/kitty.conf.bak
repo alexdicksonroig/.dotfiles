@@ -1,0 +1,4 @@
+# BEGIN_KITTY_THEME
+# Gnome-ish gray-on-black
+include current-theme.conf
+# END_KITTY_THEME

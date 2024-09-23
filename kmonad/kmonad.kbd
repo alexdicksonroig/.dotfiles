@@ -38,7 +38,7 @@ fn  lalt lmet           spc            rmet ralt left down rght
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   lctl    _    _    _    _    _    _    _    _    _    _    _    _
-  @custom3 _    _    _    _    _    _    _    _    _    _    _    _
+  _  _    _    _    _    _    _    _    _    _    _    _    _
   @fn   _    _      _              @ly2andShift    _   _ _    _)
 
 (deflayer function
