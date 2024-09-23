@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
 
-# Check if the required arguments are provided
-if [ $# -lt 3 ]; then
-    echo 'Usage: $0 <jira id> <airline code> <title (between quotes "")>'
-    exit 1
-fi
+# Function to prompt for input
+prompt_input() {
+    local prompt_message="$1"
+    local input_variable="$2"
+    read -p "$prompt_message: " $input_variable
+}
 
-# Extract arguments
-number=$1
-airline=$2
-shift 2
-description=$(echo "$*" | tr ' ' '-')
+# Prompt for inputs
+prompt_input "Enter the Jira ID (e.g., 793)" jira_ticket_id
+prompt_input "Enter the airline IATA code (e.g., IBE) or ALL" airline_iata_code
+prompt_input "Enter the merge request title (without the IATA prefix, just white-space separated words)" mr_title
 
-# Create branch name
-branch_name="prodsqd-${number}-${description}"
+# Create lowercase version of mr_title for branch name
+mr_title_lowercase=$(echo "$mr_title" | tr '[:upper:]' '[:lower:]')
+
+# Create branch name (lowercase)
+branch_name="prodsqd-${jira_ticket_id}-$(echo "$mr_title_lowercase" | tr ' ' '-')"
 
 # Create new branch from master
 git checkout master
@@ -21,18 +24,18 @@ git pull
 git checkout -b "$branch_name"
 
 # Create a commit to link the branch to the Jira ticket
-git commit --allow-empty -m "PRODSQD-${number} Branch creation"
+git commit --allow-empty -m "PRODSQD-${jira_ticket_id} Branch creation"
 
 # Push the new branch to remote
 git push -u origin "$branch_name"
 
-# Construct the MR title with the airline code
-mr_title="[${airline^^}-${number}] $*"
+# Construct the full MR title with the airline code and Jira ID (preserving original case)
+full_mr_title="[${airline_iata_code}-${jira_ticket_id}] $mr_title"
 
 # Create merge request using glab CLI
 glab mr create \
-    --title "$mr_title" \
-    --description "Jira ticket: https://immfly.atlassian.net/browse/PRODSQD-$number" \
+    --title "$full_mr_title" \
+    --description "Jira ticket: https://immfly.atlassian.net/browse/PRODSQD-$jira_ticket_id" \
     --assignee "alex.dickson" \
     --source-branch "$branch_name" \
     --target-branch master \
