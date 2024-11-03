@@ -21,13 +21,14 @@ fn  lalt lmet           spc            rmet ralt left down rght
 ;; actually gets emitted. This matters when using an application that
 ;; can use `fn' as a modifier (like Emacs).
 
-(defalias 
+(defalias
 ;;  col (layer-add colemak) ;; Set colemak as the base layer
   shiftNext (around-next-single sft)
   custom0 (layer-toggle ly1)
   custom1 (tap-hold 130 (around-next-single sft) ctl)
   custom2 (layer-toggle ly2)
   custom3 (tap-hold 150 @shiftNext sft)
+  custom5 (tap-hold 200 (around lmet tab) lctl)
   custom4 (around lmet (around sft c))
   ly2andShift (tap-hold 150 @shiftNext @custom2)
   fn (around (layer-toggle function) fn)
@@ -62,9 +63,9 @@ fn  lalt lmet           spc            rmet ralt left down rght
 (deflayer ly2
   esc  brdn brup lp   mctl bldn blup prev pp   next mute vold volu
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  _  !    @    #    $    %    ^    &    *    \(   \)  _ _ _ 
-  _  -    =    [    ]    '    \\    {    }    /    :    _    _
-  _ \_    +    ~    `    "    |    <    >    ?    ;    _ _ 
+  _  !    @    #    $    %    ^    &    *    \(   \)  _ _ _
+  _  -    =    [    ]    '    \\    {    }    /    ~    _    _
+  _ \_    +    ;    :    "    |    <    >    ?    `    _ _
   fn  lalt lctl           spc            rmet ralt left down rght)
 
 (deflayer lyoneshot

@@ -10,7 +10,7 @@ return {
             },
             sections = {
                 lualine_a = {{ 'mode', fmt = function(str) return str:sub(1,1):upper() .. str:lower():sub(2) end }},lualine_b = { 'branch' },
-                lualine_c = { 'filename' },
+                lualine_c = {{'filename', path = 1}},
                 lualine_x = { 'encoding', 'fileformat', 'filetype' },
                 lualine_y = { 'progress' },
                 lualine_z = { 'location' },

@@ -1,4 +1,4 @@
-export ANTHROPIC_API_KEY='sk-ant-api03-oqet8ngwSqejIa2w4IDzOF_9AU8j4JcCL8FTOnPutPrBND76IdbgJ0zn1n1QQG30p040R6UkDDHBcxOXhwxrZw-sVdnSwA'
+source ./.env
 export KITTY_CONFIG_DIRECTORY='$HOME/.config/kitty/'
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # plugins=(zsh-autosuggestions zsh-syntax-highlighting)
@@ -30,7 +30,6 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 PROMPT='%F{white}%*%f %F{white}%~%f %F{green}${vcs_info_msg_0_}%f$ '
-# source ./.env
 ZSH_CUSTOM=~/.oh-my-zsh/custom
 bindkey "^R" history-incremental-search-backward
 bindkey "\e[A" history-beginning-search-backward
@@ -97,3 +96,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 [ -f "/Users/alexdickson2/.ghcup/env" ] && . "/Users/alexdickson2/.ghcup/env" # ghcup-env
 
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/alexdickson2/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
