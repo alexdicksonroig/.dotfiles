@@ -8,3 +8,8 @@
 
 [core]
     pager = delta
+
+[delta]
+[user]
+	name = Alex Dickson
+	email = alex.dickson@immfly.com

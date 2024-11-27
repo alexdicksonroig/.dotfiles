@@ -29,7 +29,7 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
-PROMPT='%F{white}%*%f %F{white}%~%f %F{green}${vcs_info_msg_0_}%f$ '
+PROMPT='%F{white}%*%f %F{white}%~%f %F{cyan}${vcs_info_msg_0_}%f$ '
 ZSH_CUSTOM=~/.oh-my-zsh/custom
 bindkey "^R" history-incremental-search-backward
 bindkey "\e[A" history-beginning-search-backward
@@ -43,9 +43,6 @@ zle -N myCustomWidget
 # bind to control + O
 bindkey "^f" myCustomWidget
 alias macro="sudo kmonad ./kmonad.kbd"
-
-# ---- Eza (better ls) -----
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
 alias nocors="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security"
 alias vim="nvim +only -o"

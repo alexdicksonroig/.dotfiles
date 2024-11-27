@@ -32,16 +32,15 @@ fn  lalt lmet           spc            rmet ralt left down rght
   custom4 (around lmet (around sft c))
   ly2andShift (tap-hold 150 @shiftNext @custom2)
   fn (around (layer-toggle function) fn)
-  hr1 (tap-hold 150 d @custom2)
 )
 
 (deflayer default
   esc  brdn brup lp   mctl bldn blup prev pp   next mute vold volu
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    @hr1    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
   _  _    _    _    _    _    _    _    _    _    _    _    _
-  @fn   _    _      _              spc    _   _ _    _)
+  @fn   _    _      _              @ly2andShift    _   _ _    _)
 
 (deflayer function
   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
@@ -65,8 +64,8 @@ fn  lalt lmet           spc            rmet ralt left down rght
   esc  brdn brup lp   mctl bldn blup prev pp   next mute vold volu
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   _  !    @    #    $    %    ^    &    *    \(   \)  _ _ _
-  _  [    ]    _    =    '    \\    -    ~    {    }    _    _
-  _  #    :    _   +    "    |    \_    <    >    `    _ _
+  _  -    =    [    ]    '    \\    {    }    /    ~    _    _
+  _ \_    +    ;    :    "    |    <    >    ?    `    _ _
   fn  lalt lctl           spc            rmet ralt left down rght)
 
 (deflayer lyoneshot
