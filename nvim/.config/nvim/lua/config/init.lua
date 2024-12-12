@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Auto save
+-- Autosave
 vim.cmd [[autocmd InsertLeave * silent! update]]
 vim.cmd [[autocmd TextChanged * silent! update]]
 

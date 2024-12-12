@@ -1,4 +1,10 @@
 --[[
+return { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, 	init = function()
+		vim.cmd.colorscheme("gruvbox")
+	end,
+}
+--]]
+--[[
 return {
 	"folke/tokyonight.nvim",
 	priority = 1000,
@@ -59,7 +65,18 @@ return {
 				-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 			},
 		})
+		--vim.cmd.colorscheme("catppuccin-latte")
+		--vim.cmd.colorscheme("catppuccin-frappe")
+		--vim.cmd.colorscheme("catppuccin-macchiato")
 		vim.cmd.colorscheme("catppuccin-mocha")
+		vim.cmd([[
+  highlight Comment guibg=none
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+  highlight SignColumn guibg=none
+]])
 	end,
 }
 ---]]

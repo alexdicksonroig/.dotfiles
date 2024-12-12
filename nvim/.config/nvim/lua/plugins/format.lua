@@ -1,6 +1,7 @@
 return {
     {
         'stevearc/conform.nvim',
+        event = {"BufReadPre", "BufNewFile"},
         config = function()
             require("conform").setup({
                 -- Map of filetype to formatters
@@ -9,7 +10,15 @@ return {
                     -- Conform will run multiple formatters sequentially
                     go = { "goimports", "gofmt" },
                     -- Use a sub-list to run only the first available formatter
-                    javascript = { { "prettierd", "prettier" } },
+                    javascript = { "prettier" },
+                    javascriptreact = { "prettier" },
+                    typescript = { "prettier" },
+                    typescriptreact = { "prettier" },
+                    css = { "prettier" },
+                    json = { "prettier" },
+                    html = { "prettier" },
+                    markdown = { "prettier" },
+                    yaml = { "prettier" }, 
                     -- You can use a function here to determine the formatters dynamically
                     python = function(bufnr)
                         if require("conform").get_formatter_info("ruff_format", bufnr).available then
@@ -29,7 +38,8 @@ return {
                 -- This can also be a function that returns the table.
                 format_on_save = {
                     -- I recommend these options. See :help conform.format for details.
-                    lsp_format = "fallback",
+                    lsp_format = true,
+                    async = false,
                     timeout_ms = 500,
                 },
                 -- If this is set, Conform will run the formatter asynchronously after save.
@@ -43,6 +53,14 @@ return {
                 -- Conform will notify you when a formatter errors
                 notify_on_error = true,
             })
+
+            vim.keymap.set({ "n", "v"}, "<leader>mp", function()
+                require("conform").format({
+                    lsp_fallback = true,
+                    async = false,
+                    timeout_ms = 500,
+                })
+            end)
         end,
     },
 }

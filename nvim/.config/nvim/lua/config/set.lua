@@ -10,6 +10,7 @@ vim.o.autoread = true
 -- Cursor
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
 -- Sync clipboard between OS and Neovim
+vim.o.cursorline = true
 vim.opt.clipboard = "unnamedplus"
 
 -- Enable break indent
