@@ -83,9 +83,9 @@ alias py="python3"
 alias m="python3 manage.py"
 
 # Go
-alias air='$(go env GOPATH)/bin/air'
 autoload -U compinit && compinit
 zmodload -i zsh/complist
+export PATH="$HOME/go/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/llvm@12/bin:/Users/alexdickson2/.local/bin:/opt/homebrew/opt/:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
@@ -97,3 +97,4 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/alexdickson2/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+

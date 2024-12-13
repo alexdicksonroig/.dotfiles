@@ -6,5 +6,6 @@ return {
   },
   config = function()
     require("refactoring").setup({})
+    vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file<CR>")
   end,
 }
