@@ -1,4 +1,4 @@
-theme=FrontEndDelight
+theme=idea
 
 keybind=super+a=text:\x01
 keybind=super+b=text:\x02
