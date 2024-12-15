@@ -69,14 +69,6 @@ return {
 		vim.cmd.colorscheme("catppuccin-frappe")
 		--vim.cmd.colorscheme("catppuccin-macchiato")
 		vim.cmd.colorscheme("catppuccin-mocha")
-		vim.cmd([[
-  highlight Comment guibg=none
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-  highlight SignColumn guibg=none
-]])
 	end,
 }
 ---]]
