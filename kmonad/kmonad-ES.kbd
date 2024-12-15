@@ -14,6 +14,7 @@ caps a    s    d    f    g    h    j    k    l    ;    '    ret
 lsft z    x    c    v    b    n    m    ,    .    /    rsft up
 fn  lmet lalt           spc            rmet ralt left down rght
 )
+
 ;; Below, I use `around' to compose `layer-toggle' with `fn' (instead
 ;; of using `layer-toggle' directly) so that the `fn' keypress
 ;; actually gets emitted. This matters when using an application that
@@ -64,9 +65,9 @@ fn  lmet lalt           spc            rmet ralt left down rght
 (deflayer ly2
   esc  brdn brup lp   mctl bldn blup prev pp   next mute vold volu
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  _  !    @    #    $    %    ^    &    *    \(   \)  _ _ _
-  _  [    ]    _    =    '    \\    -    ~    {    }    _    _
-  _  #    :    _   +    "    |    \_    <    >    `    _ _
+  _  (around lsft 1)  (around lalt 2)    (around lalt 3)    (around lsft 4)    (around lsft 5)    {     ^     }    (around lsft 8)   (around lsft 9)  _ _ _
+  _  lbrc    ]    _    (around lsft 0)    -    \\    -    (around ralt ;)    {    (around lalt ñ)     _    _
+  _  #    :    _   ]    (around lsft 2)    (around lalt 1)    (around lsft -)    <    >    `    _ _
   fn  lalt lctl           spc            rmet ralt left down rght)
 
 (deflayer lyoneshot
