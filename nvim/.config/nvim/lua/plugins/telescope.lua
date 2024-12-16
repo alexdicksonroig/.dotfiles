@@ -72,6 +72,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
 				},
+				fzf = {}
 			},
 		})
 		require("telescope").load_extension("live_grep_args")
