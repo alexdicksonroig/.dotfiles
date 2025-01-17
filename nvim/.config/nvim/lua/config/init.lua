@@ -12,8 +12,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Autosave
-vim.cmd [[autocmd InsertLeave * silent! update]]
-vim.cmd [[autocmd TextChanged * silent! update]]
+vim.cmd [[
+  autocmd InsertLeave * if &buftype == '' | update | endif
+  autocmd TextChanged * if &buftype == '' | update | endif
+]]
 
 -- Copy current path
 vim.api.nvim_create_user_command('Cppath', function()

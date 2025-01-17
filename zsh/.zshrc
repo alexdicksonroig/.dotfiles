@@ -1,4 +1,4 @@
-source ./.env
+source ~/.env
 export KITTY_CONFIG_DIRECTORY='$HOME/.config/kitty/'
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # plugins=(zsh-autosuggestions zsh-syntax-highlighting)
@@ -29,7 +29,7 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
-PROMPT='%F{white}%*%f %F{white}%~%f %F{cyan}${vcs_info_msg_0_}%f$ '
+PROMPT='%F{white}%*%f %F{white}%~%f %F{green}${vcs_info_msg_0_}%f$ '
 ZSH_CUSTOM=~/.oh-my-zsh/custom
 bindkey "^R" history-incremental-search-backward
 bindkey "\e[A" history-beginning-search-backward

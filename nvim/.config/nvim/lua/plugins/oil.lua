@@ -1,5 +1,4 @@
 return { 
-
 	'stevearc/oil.nvim', 
 	config = function()
     		require('oil').setup{
@@ -18,7 +17,7 @@ return {
 				-- Set to "unmodified" to only save unmodified buffers
 				autosave_changes = true,
 			},
-			vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+			vim.keymap.set('n', '<leader>fd', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 		}
 	end,
 }

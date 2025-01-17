@@ -13,3 +13,5 @@
 [user]
 	name = Alex Dickson
 	email = alex.dickson@immfly.com
+[credential]
+	helper = osxkeychain

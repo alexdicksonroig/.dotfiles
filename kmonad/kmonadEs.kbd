@@ -1,15 +1,16 @@
 (defcfg
   input (iokit-name)
   output (kext)
-  fallthrough true)
+  fallthrough true
+)
 
 (defsrc
-esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+esc
 grv
 tab  q    w    e    r    t    y    u    i    o    p
 caps a    s    d    f    g    h    j    k    l    ;
 lsft z    x    c    v    b    n    m    ,    .    /
-fn   lmet lalt           spc            rmet)
+fn  lmet lalt           spc            rmet)
 
 (defalias
   shiftNext (around-next-single sft)
@@ -20,7 +21,7 @@ fn   lmet lalt           spc            rmet)
   3 (around lalt 3))
 
 (deflayer default
-  esc  brdn brup lp mctl bldn blup prev pp next mute vold volu
+  _
   _
   _    _    _    _    _    _    _    _    _    _    _
   _    _    _    @hr1 _    _    _    _    _    _    _
@@ -28,9 +29,9 @@ fn   lmet lalt           spc            rmet)
   _    _    _    _    rsft)
 
 (deflayer ly2
-  _  _    _    _    _    _    _    _    _    _    _    _    _
+  _
   _  
-  _  !    @    #    $    %    ^    &    *    \(  \)
-  _  [    ]    _    =    '    \\   @1   @2   {   }
+  _  !    (around lalt 2)    #    $    %    ^    &    *    \(  \)
+  _  [    ]    _    KeyEqual    '    \\   @1   @2   {   }
   _  @3   ~    `    +    "    |    <    >    -   \_
   _  _    _    _    rmet)
