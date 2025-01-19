@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 source ~/.env
+=======
+source $HOME/.env
+>>>>>>> Stashed changes
 export KITTY_CONFIG_DIRECTORY='$HOME/.config/kitty/'
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # plugins=(zsh-autosuggestions zsh-syntax-highlighting)
@@ -87,7 +91,7 @@ autoload -U compinit && compinit
 zmodload -i zsh/complist
 export PATH="$HOME/go/bin:$PATH"
 
-export PATH="/opt/homebrew/opt/llvm@12/bin:/Users/alexdickson2/.local/bin:/opt/homebrew/opt/:$PATH"
+export PATH="/opt/homebrew/opt/llvm@12/bin:/Users/alexdickson2/.local/bin:/opt/homebrew/opt/:$PATH:$HOME/.dotfiles/scripts/.local/bin/"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 

@@ -20,16 +20,16 @@
 
 (deflayer default
   _  _  _ _                                          _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
   _   _ _ _ _ _ _ _ _ _ _ _ _    _
-  lctl  _ _ _ _ _ _ _ _ _ _ _ _
+  _  _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _    _
-  _    _    _    _            _    @ly2andShift     _    _    _    _    _
+  _    _    _    lctl            _    @ly2andShift   _    _    _    _    _
                                                                     _    _    _
 )
 
 (defalias
-  shiftNext (around-next-single sft)
+  shiftNext (around-next sft)
   custom2 (layer-toggle ly2)
   ly2andShift (tap-hold 150 @shiftNext @custom2)
 )
@@ -39,8 +39,8 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   esc  mute vold volu                                          home end del
   _  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   _  !    @    #    $    %    ^    &    *    \(   \)  _ _ _
-  _  -    =    [    ]    '    \\    {    }    /    =    _    _
-  _ _ \_    +    ~    `    "    |    +    <    >    :    _
+  _  -    =    [    ]    '    \\    {    }    /    ~    _    _
+  _ _ \_    +    ;    :    "    |    +    <    >    `    _
   _ _ _ _ _ _ _ _ _ _ _
   _ _ _
 )
