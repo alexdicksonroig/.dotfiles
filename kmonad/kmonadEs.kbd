@@ -18,7 +18,8 @@ fn  lmet lalt           spc            rmet)
   hr1 (tap-hold 150 d @ly2)
   1 (around lalt 1)
   2 (around lalt 2)
-  3 (around lalt 3))
+  3 (around lalt 3)
+  )
 
 (deflayer default
   _

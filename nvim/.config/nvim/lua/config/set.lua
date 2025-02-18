@@ -8,7 +8,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.o.autoread = true
 -- Cursor
-vim.opt.guicursor = "n-v-i-c:block-Cursor"
+--vim.opt.guicursor = "n-v-i-c:block-Cursor"
 -- Sync clipboard between OS and Neovim
 vim.o.cursorline = true
 vim.opt.clipboard = "unnamedplus"
@@ -43,5 +43,5 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+--vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 

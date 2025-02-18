@@ -1,4 +1,5 @@
-theme=tokyonight
+theme=solarized-osaka-night
+macos-icon=chalkboard
 font-size=18.0
 
 keybind=super+a=text:\x01

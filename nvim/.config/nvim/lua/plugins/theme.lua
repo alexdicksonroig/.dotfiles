@@ -4,7 +4,7 @@ return { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, 	init = fu
 	end,
 }
 --]]
----[[
+--[[
 return { -- You can easily change to a different colorscheme.
 	-- Change the name of the colorscheme plugin below, and then
 	-- change the command in the config to whatever the name of that colorscheme is.
@@ -15,19 +15,24 @@ return { -- You can easily change to a different colorscheme.
 	init = function()
 		vim.cmd.colorscheme("tokyonight-moon")
 		vim.o.background = "dark"
-		  vim.cmd [[
+	end,
+}
+--]]
+return {
+	"rose-pine/neovim",
+	name = "rose-pine",
+	config = function()
+		vim.cmd("colorscheme rose-pine")
+		vim.cmd([[
   highlight Comment guibg=none
   highlight Normal guibg=none
   highlight NonText guibg=none
   highlight Normal ctermbg=none
   highlight NonText ctermbg=none
   highlight SignColumn guibg=none
-]]
-
+]])
 	end,
 }
----]]
-
 --[[
 return {
 	"catppuccin/nvim",

@@ -17,20 +17,22 @@ fn   lmet lalt           spc            rmet)
   hr1 (tap-hold 150 d @ly2)
   1 (around lalt 1)
   2 (around lalt 2)
-  3 (around lalt 3))
+  3 (around lalt 3)
+  no (around lalt lalt)
+)
 
 (deflayer default
   esc  brdn brup lp mctl bldn blup prev pp next mute vold volu
   _
   _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    @hr1 _    _    _    _    _    _    _
+  lsft    _    _    @hr1 _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    rsft)
+  _    _    _    _    _)
 
 (deflayer ly2
   _  _    _    _    _    _    _    _    _    _    _    _    _
-  _  
+  _
   _  !    @    #    $    %    ^    &    *    \(  \)
-  _  [    ]    _    =    '    \\   @1   @2   {   }
-  _  @3   ~    `    +    "    |    <    >    -   \_
+  _  [    ]    _    '    =    \\   _   _   {   }
+  _  @3   ~    `    "    +    |    \_  -   <   >
   _  _    _    _    rmet)
