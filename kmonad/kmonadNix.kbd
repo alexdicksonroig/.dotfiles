@@ -1,7 +1,8 @@
 (defcfg
-  input (iokit-name)
-  output (kext)
-  fallthrough true)
+  input  (device-file "/dev/input/event0")  
+  output (uinput-sink "MyVirtualKeyboard")
+  fallthrough true
+)
 
 (defsrc
 esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
@@ -17,28 +18,21 @@ fn   lmet lalt           spc            rmet)
   hr1 (tap-hold 150 d @ly2)
   1 (around lalt 1)
   2 (around lalt 2)
-  3 (around lalt 3)
-  no (around lalt lalt)
-)
+  3 (around lalt 3))
 
 (deflayer default
   esc  brdn brup lp mctl bldn blup prev pp next mute vold volu
   _
   _    _    _    _    _    _    _    _    _    _    _
-  lsft    _    _    @hr1 _    _    _    _    _    _    _
+  lctl    _    _    @hr1 _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _)
 
 (deflayer ly2
   _  _    _    _    _    _    _    _    _    _    _    _    _
-  _
+  _  
   _  !    @    #    $    %    ^    &    *    \(  \)
-<<<<<<< Updated upstream
-  _  [    ]    _    '    =    \\   _   _   {   }
-  _  @3   ~    `    "    +    |    \_  -   <   >
-  _  _    _    _    rmet)
-=======
   _  [    ]    _    =    '    \\   @1   @2   {   }
   _  @3   ~    `    +    "    |    <    >    -   \_
   _  _    _    _    _)
->>>>>>> Stashed changes
+

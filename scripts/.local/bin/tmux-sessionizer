@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Projects ~/Projects/go ~/Exercism ~/.dotfiles -mindepth 1 -maxdepth 1 | fzf)
+    selected=$(find ~/Projects ~/Projects/go ~/Exercism ~/.dotfiles /etc/nixos -mindepth 1 -maxdepth 1 | fzf)
 fi
 
 if [[ -z $selected ]]; then
@@ -19,7 +19,7 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected 
+    tmux new-session -ds $selected_name -c $selected
     tmux send-keys -t $selected_name:1 'nvim' Enter
     tmux new-window -t $selected_name -c $selected
     tmux select-window -t $selected_name:1
