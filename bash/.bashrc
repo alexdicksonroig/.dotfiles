@@ -31,7 +31,6 @@ alias glog="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bol
 alias gdi='git diff'
 alias gds='git diff --staged'
 alias gas='git add . && git stash'
-alias gd='gitdick'
 alias gco="git checkout"
 alias gb='git branch --sort=-committerdate'
 
