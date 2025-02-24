@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-source ~/.env
-=======
 source $HOME/.env
->>>>>>> Stashed changes
 export KITTY_CONFIG_DIRECTORY='$HOME/.config/kitty/'
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # plugins=(zsh-autosuggestions zsh-syntax-highlighting)
