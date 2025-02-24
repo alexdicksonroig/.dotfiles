@@ -2,14 +2,12 @@
     undo = reset --soft HEAD^
     ignore = update-index --skip-worktree
     unignore = update-index --no-skip-worktree
+    acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
 
 [push]
     autoSetupRemote = true
 
-[core]
-    pager = delta
 
-[delta]
 [user]
 	name = Alex Dickson
 	email = alex.dickson@immfly.com

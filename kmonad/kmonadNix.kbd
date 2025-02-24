@@ -24,15 +24,15 @@ fn   lmet lalt           spc            rmet)
   esc  brdn brup lp mctl bldn blup prev pp next mute vold volu
   _
   _    _    _    _    _    _    _    _    _    _    _
-  lctl    _    _    @hr1 _    _    _    _    _    _    _
+  lsft    _    _    @hr1 _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _)
+  _    _    lctl    _    _)
 
 (deflayer ly2
   _  _    _    _    _    _    _    _    _    _    _    _    _
-  _  
+  _
   _  !    @    #    $    %    ^    &    *    \(  \)
-  _  [    ]    _    =    '    \\   @1   @2   {   }
-  _  @3   ~    `    +    "    |    <    >    -   \_
+  _  [    ]    _    '    =    \\   _   _   {   }
+  _  @3   ~    `    "    +    |    \_  -   <   >
   _  _    _    _    _)
 

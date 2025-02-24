@@ -1,4 +1,5 @@
 source $HOME/.env
+<<<<<<< HEAD
 export KITTY_CONFIG_DIRECTORY='$HOME/.config/kitty/'
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # plugins=(zsh-autosuggestions zsh-syntax-highlighting)
@@ -10,12 +11,9 @@ export KITTY_CONFIG_DIRECTORY='$HOME/.config/kitty/'
 #fi
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 #source ~/powerlevel10k/powerlevel10k.zsh-theme
+=======
+>>>>>>> 7ead110d5da0f86cd1b249eaf2ee50f31bb5f979
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Custom prompt line
-kmonad="kmonad"
 ENABLE_MACROS=true
 
 if [[ -z $(pgrep kmonad) && $ENABLE_MACROS = true ]]; then
@@ -47,29 +45,19 @@ alias macro="sudo kmonad ./kmonad.kbd"
 alias nocors="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security"
 alias vim="nvim +only -o"
 alias vi="nvim +only -o"
-alias gdi='git diff'
-alias gds='git diff --staged'
-alias gd='gitdick'
 alias sc='source ~/.zshrc; echo "Zsh sourced!"'
 alias gas='git add . && git stash'
-alias ..='cd ..'
+
 # Git
 alias gc="git commit -m"
 alias gca="git commit -a -m"
-alias gp="git push origin HEAD"
-alias gpu="git pull origin"
 alias gst="git status"
 alias glog="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit"
-alias gdiff="git diff"
+alias gdi='git diff'
+alias gds='git diff --staged'
+alias gd='gitdick'
 alias gco="git checkout"
 alias gb='git branch --sort=-committerdate'
-alias gba='git branch -a'
-alias gadd='git add'
-alias ga='git add -p'
-alias gcoall='git checkout -- .'
-alias gr='git remote'
-alias gre='git reset'
-alias gm='git merge'
 
 # Docker
 alias dco="docker compose"
@@ -82,19 +70,4 @@ alias dx="docker exec -it"
 alias py="python3"
 alias m="python3 manage.py"
 
-# Go
-autoload -U compinit && compinit
-zmodload -i zsh/complist
-export PATH="$HOME/go/bin:$PATH"
-
 export PATH="/opt/homebrew/opt/llvm@12/bin:/Users/alexdickson2/.local/bin:/opt/homebrew/opt/:$PATH:$HOME/.dotfiles/scripts/.local/bin/"
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-
-[ -f "/Users/alexdickson2/.ghcup/env" ] && . "/Users/alexdickson2/.ghcup/env" # ghcup-env
-
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/alexdickson2/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
