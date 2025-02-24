@@ -12,9 +12,8 @@ fi
 myCustomWidget() {
   tmux-sessionizer
 }
-zle -N myCustomWidget
 
-bindkey "^f" myCustomWidget
+bind -x '"\C-f": myCustomWidget'
 
 alias nocors="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security"
 alias vim="nvim +only -o"
