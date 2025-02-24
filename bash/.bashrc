@@ -1,4 +1,4 @@
-source $HOME/.env
+PS1='\[\e[1;32m\]\A \[\e[1;34m\]\w \[\e[1;33m\]$(git branch 2>/dev/null | grep "*" | sed "s/* //")\[\e[0m\] $ '
 
 ENABLE_MACROS=true
 
@@ -9,38 +9,23 @@ if [[ -z $(pgrep kmonad) && $ENABLE_MACROS = true ]]; then
   tmux send-keys -t $kmonad "sudo kmonad ./kmonad.kbd" Enter
 fi
 
-autoload -Uz vcs_info
-precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats '%b '
-setopt PROMPT_SUBST
-PROMPT='%F{green}%*%f %F{white}%~%f %F{green}${vcs_info_msg_0_}%f$ '
-ZSH_CUSTOM=~/.oh-my-zsh/custom
-bindkey "^R" history-incremental-search-backward
-bindkey "\e[A" history-beginning-search-backward
-bindkey "\e[B" history-beginning-search-forward
-# Example
 myCustomWidget() {
   tmux-sessionizer
 }
 zle -N myCustomWidget
 
-# bind to control + O
 bindkey "^f" myCustomWidget
-alias macro="sudo kmonad ./kmonad.kbd"
 
 alias nocors="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security"
 alias vim="nvim +only -o"
 alias vi="nvim +only -o"
-alias sc='source ~/.zshrc; echo "Zsh sourced!"'
-alias gas='git add . && git stash'
 
 # Git
-alias gc="git commit -m"
-alias gca="git commit -a -m"
 alias gst="git status"
 alias glog="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit"
 alias gdi='git diff'
 alias gds='git diff --staged'
+alias gas='git add . && git stash'
 alias gd='gitdick'
 alias gco="git checkout"
 alias gb='git branch --sort=-committerdate'
@@ -52,8 +37,5 @@ alias dpa="docker ps -a"
 alias dl="docker ps -l -q"
 alias dx="docker exec -it"
 
-# Python
-alias py="python3"
-alias m="python3 manage.py"
-
-export PATH="/opt/homebrew/opt/llvm@12/bin:/Users/alexdickson2/.local/bin:/opt/homebrew/opt/:$PATH:$HOME/.dotfiles/scripts/.local/bin/"
+source $HOME/.env
+export PATH="$PATH:$HOME/.dotfiles/scripts/.local/bin/"
