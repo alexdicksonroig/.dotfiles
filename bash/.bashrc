@@ -2,7 +2,8 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="/opt/homebrew/opt/llvm@12/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
 
-PS1='\[\e[1;32m\]\A \[\e[1;34m\]\w \[\e[1;33m\]$(git branch 2>/dev/null | grep "*" | sed "s/* //")\[\e[0m\] $ '
+# PS1='\[\e[1;32m\]\A \[\e[1;34m\]\w \[\e[1;33m\]$(git branch 2>/dev/null | grep "*" | sed "s/* //")\[\e[0m\] $ '
+PS1='\[\e[1;34m\]\w \[\e[1;33m\]$ '
 
 ENABLE_MACROS=true
 kmonad="kmonad"
@@ -22,9 +23,8 @@ fi
 
 bind -x '"\C-f": tmux-sessionizer'
 
-alias nocors="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security"
+alias nocors="open -n -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser --args --user-data-dir="/tmp/brave_dev_sess_1" --disable-web-security"
 alias vim="nvim +only -o"
-alias vi="nvim +only -o"
 
 # Git
 alias gst="git status"

@@ -2,6 +2,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
 	branch = "0.1.x",
+	mappings = {
+		i = {
+			["<C-V>"] = "<C-r>",
+		},
+	},
 	dependencies = {
 		{
 			"nvim-telescope/telescope-live-grep-args.nvim",
@@ -72,7 +77,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
 				},
-				fzf = {}
+				fzf = {},
 			},
 		})
 		require("telescope").load_extension("live_grep_args")
