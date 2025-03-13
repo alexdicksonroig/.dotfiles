@@ -1,6 +1,5 @@
-theme=solarized-osaka-night
-macos-icon=chalkboard
 font-size=12.0
+gtk-titlebar=false
 
 keybind=super+a=text:\x01
 keybind=super+b=text:\x02
@@ -24,6 +23,7 @@ keybind=super+s=text:\x13
 keybind=super+u=text:\x15
 keybind=super+v=text:\x16
 keybind=super+w=text:\x17
+keybind=ctrl+backspace=text:\x17
 keybind=super+x=text:\x18
 keybind=super+y=text:\x19
 keybind=super+z=text:\x1A
