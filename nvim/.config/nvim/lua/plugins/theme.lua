@@ -4,7 +4,7 @@ return { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, 	init = fu
 	end,
 }
 --]]
---[[
+---[[
 return { -- You can easily change to a different colorscheme.
 	-- Change the name of the colorscheme plugin below, and then
 	-- change the command in the config to whatever the name of that colorscheme is.
@@ -13,18 +13,20 @@ return { -- You can easily change to a different colorscheme.
 	"folke/tokyonight.nvim",
 	priority = 1000, -- Make sure to load this before all the other start plugins.
 	init = function()
-		vim.cmd.colorscheme("tokyonight-moon")
+		vim.cmd.colorscheme("tokyonight-night")
 		vim.o.background = "dark"
 	end,
 }
 --]]
+--[[
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
 	config = function()
 		vim.cmd("colorscheme rose-pine")
 	end,
-}
+  }
+--]]
 --[[
 return {
 	"catppuccin/nvim",
@@ -77,7 +79,7 @@ return {
 		})
 		--vim.cmd.colorscheme("catppuccin-latte")
 		--vim.cmd.colorscheme("catppuccin-frappe")
-		--vim.cmd.colorscheme("catppuccin-macchiato")
+		vim.cmd.colorscheme("catppuccin-macchiato")
 		--vim.cmd.colorscheme("catppuccin-mocha")
 	end,
 }

@@ -1,6 +1,6 @@
 font-size=12.0
 gtk-titlebar=false
-theme=iTerm2 Smoooooth
+theme=tokyonight_night
 
 keybind=super+a=text:\x01
 keybind=super+b=text:\x02
@@ -32,28 +32,6 @@ keybind=super+z=text:\x1A
 
 keybind=super+shift+c=copy_to_clipboard
 keybind=super+shift+v=paste_from_clipboard
-
-palette = 0=#ffffff
-palette = 1=#b97b79
-palette = 2=#7bb77b
-palette = 3=#ffffff
-palette = 4=#7ab8b8
-palette = 5=#ffffff
-palette = 6=#ffffff
-palette = 7=#ffffff
-palette = 8=#ffffff
-palette = 9=#ffffff
-palette = 10=#ffffff
-palette = 11=#ffffff
-palette = 12=#ffffff
-palette = 13=#ffffff
-palette = 14=#ffffff
-palette = 15=#ffffff
-foreground = #ffffff
-cursor-color = #ffffff
-cursor-text = #ffffff
-selection-background = #ffffff
-selection-foreground = #ffffff
 
 macos-titlebar-style = transparent
 title = ""

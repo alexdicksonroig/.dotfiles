@@ -1,9 +1,5 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
-export PATH="/opt/homebrew/opt/llvm@12/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:$PATH"
-export EDITOR="nvim"
-
-# PS1='\[\e[1;32m\]\A \[\e[1;34m\]\w \[\e[1;33m\]$(git branch 2>/dev/null | grep "*" | sed "s/* //")\[\e[0m\] $ '
-PS1='\[\e[1;34m\]\w \[\e[1;33m\]$ '
+export PATH="/opt/homebrew/opt/llvm@12/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:$HOME/.local/bin/helix-25.01.1-aarch64-macos/:$PATH"
 
 ENABLE_MACROS=true
 kmonad="kmonad"

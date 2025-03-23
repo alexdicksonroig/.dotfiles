@@ -3,11 +3,16 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Projects ~/Projects/go ~/Exercism ~/.dotfiles /etc/nixos -mindepth 1 -maxdepth 1 | fzf)
+    selected=$(find ~/Projects ~/Projects/go ~/Exercism ~/.dotfiles /etc/nixos ~/Documents -mindepth 1 -maxdepth 1 | fzf)
 fi
 
 if [[ -z $selected ]]; then
     exit 0
+fi
+
+# If selected is a file, get its parent directory
+if [[ -f $selected ]]; then
+    selected=$(dirname "$selected")
 fi
 
 selected_name=$(basename "$selected" | tr . _)
@@ -24,10 +29,10 @@ if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-window -t $selected_name -c $selected
     tmux select-window -t $selected_name:1
 fi
+
 if [[ -z $TMUX ]]; then
     echo $selected_name
     tmux attach-session -t $selected_name
 else
     tmux switch-client -t $selected_name
 fi
-
