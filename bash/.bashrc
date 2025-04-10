@@ -1,8 +1,16 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="/opt/homebrew/opt/llvm@12/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:$HOME/.local/bin/helix-25.01.1-aarch64-macos/:$PATH"
 
+# PS1='\[\e[1;32m\]\A \[\e[1;34m\]\w \[\e[1;33m\]$(git branch 2>/dev/null | grep "*" | sed "s/* //")\[\e[0m\] $ '
+PS1='\[\e[1;34m\]\w\[\e[0m\]$(git branch 2>/dev/null | grep "*" | sed "s/* / /")\[\e[0m\] $ '
+# PS1='\[\e[1;34m\]\w \[\e[1;33m\] \[\e[0m\]$'
+
 ENABLE_MACROS=true
 kmonad="kmonad"
+
+if [ -f /usr/local/etc/bash_completion ]; then
+  . /usr/local/etc/bash_completion
+fi
 
 if [[ -z $(pgrep kmonad) && $ENABLE_MACROS = true ]]; then
   if ! tmux has-session -t=$kmonad  2> /dev/null; then

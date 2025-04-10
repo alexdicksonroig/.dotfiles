@@ -1,5 +1,4 @@
 font-size=12.0
-gtk-titlebar=false
 theme=tokyonight_night
 
 keybind=super+a=text:\x01
@@ -33,5 +32,5 @@ keybind=super+z=text:\x1A
 keybind=super+shift+c=copy_to_clipboard
 keybind=super+shift+v=paste_from_clipboard
 
-macos-titlebar-style = transparent
-title = ""
+confirm-close-surface=false
+title="Ghostty"

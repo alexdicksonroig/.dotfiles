@@ -2,6 +2,7 @@
     undo = reset --soft HEAD^
     ignore = update-index --skip-worktree
     unignore = update-index --no-skip-worktree
+    ac = "!f() { git add . && git commit -m \"$1\"; }; f"
     acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
 
 [push]
