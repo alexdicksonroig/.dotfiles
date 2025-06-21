@@ -1,3 +1,4 @@
+auto-update=off
 font-size=12.0
 theme=tokyonight_night
 
@@ -33,4 +34,3 @@ keybind=super+shift+c=copy_to_clipboard
 keybind=super+shift+v=paste_from_clipboard
 
 confirm-close-surface=false
-title="Ghostty"

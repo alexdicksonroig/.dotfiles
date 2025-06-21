@@ -46,4 +46,8 @@ alias dpa="docker ps -a"
 alias dl="docker ps -l -q"
 alias dx="docker exec -it"
 
+alias vpn="sudo openvpn --config ~/vpn/.config/config.ovpn"
+
 source $HOME/.env
+
+. "$HOME/.cargo/env"

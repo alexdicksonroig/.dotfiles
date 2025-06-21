@@ -16,7 +16,7 @@ prompt_input "Enter the merge request title (without the IATA prefix, just white
 mr_title_lowercase=$(echo "$mr_title" | tr '[:upper:]' '[:lower:]')
 
 # Create branch name (lowercase)
-branch_name="prodsqd-${jira_ticket_id}-$(echo "$mr_title_lowercase" | tr ' ' '-')"
+branch_name="ifec-${jira_ticket_id}-$(echo "$mr_title_lowercase" | tr ' ' '-')"
 
 # Create new branch from master
 git checkout master
@@ -24,7 +24,7 @@ git pull
 git checkout -b "$branch_name"
 
 # Create a commit to link the branch to the Jira ticket
-git commit --allow-empty -m "PRODSQD-${jira_ticket_id} Branch creation"
+git commit --allow-empty -m "IFEC-${jira_ticket_id} Branch creation"
 
 # Push the new branch to remote
 git push -u origin "$branch_name"
@@ -35,7 +35,7 @@ full_mr_title="[${airline_iata_code}-${jira_ticket_id}] $mr_title"
 # Create merge request using glab CLI
 glab mr create \
     --title "$full_mr_title" \
-    --description "Jira ticket: https://immfly.atlassian.net/browse/PRODSQD-$jira_ticket_id" \
+    --description "Jira ticket: https://immfly.atlassian.net/browse/IFEC-$jira_ticket_id" \
     --assignee "alex.dickson" \
     --source-branch "$branch_name" \
     --target-branch master \

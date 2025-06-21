@@ -2,8 +2,10 @@
     undo = reset --soft HEAD^
     ignore = update-index --skip-worktree
     unignore = update-index --no-skip-worktree
+    stashy = git stash push -u --keep-index
     ac = "!f() { git add . && git commit -m \"$1\"; }; f"
     acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
+    update = "!f() { git fetch origin master && git rebase origin/master; }; f"
 
 [push]
     autoSetupRemote = true
