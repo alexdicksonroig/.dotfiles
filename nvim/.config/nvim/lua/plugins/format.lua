@@ -10,10 +10,16 @@ return {
 						args = { "fmt", "--stdin" }, -- Formats via stdin
 						stdin = true, -- Required for piping to stdin
 					},
+					rustfmt = {
+						command = "rustfmt",
+						args = { "--emit=stdout" },
+						stdin = true,
+					},
 				},
 				-- Map of filetype to formatters
 				formatters_by_ft = {
 					zig = { "zigfmt" },
+					rust = { "rustfmt" },
 					lua = { "stylua" },
 					-- Conform will run multiple formatters sequentially
 					go = { "goimports", "gofmt" },

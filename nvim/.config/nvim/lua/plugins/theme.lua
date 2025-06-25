@@ -16,7 +16,7 @@ return { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, 	init = fu
 	end,
 }
 --]]
---[[
+---[[
 return { -- You can easily change to a different colorscheme.
 	-- Change the name of the colorscheme plugin below, and then
 	-- change the command in the config to whatever the name of that colorscheme is.
@@ -30,7 +30,7 @@ return { -- You can easily change to a different colorscheme.
 	end,
 }
 --]]
----[[
+--[[
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
