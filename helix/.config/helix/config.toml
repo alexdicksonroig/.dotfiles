@@ -1,0 +1,7 @@
+theme = "base16_transparent"
+
+[editor]
+line-number = "relative"
+
+[keys.insert]
+"C-c" = "normal_mode"

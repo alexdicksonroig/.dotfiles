@@ -2,11 +2,23 @@
     undo = reset --soft HEAD^
     ignore = update-index --skip-worktree
     unignore = update-index --no-skip-worktree
+    s = status
     stashy = git stash push -u --keep-index
     ac = "!f() { git add . && git commit -m \"$1\"; }; f"
     acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
     update = "!f() { git fetch origin master && git rebase origin/master; }; f"
+[core]
+    pager = delta
 
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictstyle = zdiff3
 [push]
     autoSetupRemote = true
 

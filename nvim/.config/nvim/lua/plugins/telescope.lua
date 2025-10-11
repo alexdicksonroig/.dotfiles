@@ -72,7 +72,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 					"--hidden",
 				},
 			},
-			pickers = { find_files = { follow = true } },
+			pickers = { find_files = { follow = true, hidden = true } },
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),

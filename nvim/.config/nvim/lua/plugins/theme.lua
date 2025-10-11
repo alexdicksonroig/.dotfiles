@@ -1,15 +1,3 @@
-local function set_theme_based_on_system()
-	local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
-	local result = handle:read("*a")
-	handle:close()
-
-	if result:match("Dark") then
-		vim.cmd("colorscheme your_dark_theme")
-	else
-		vim.cmd("colorscheme your_light_theme")
-	end
-end
-
 --[[
 return { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, 	init = function()
 		vim.cmd.colorscheme("gruvbox")
@@ -27,6 +15,14 @@ return { -- You can easily change to a different colorscheme.
 	init = function()
 		vim.cmd.colorscheme("tokyonight-night")
 		vim.o.background = "dark"
+		vim.cmd([[
+  highlight Comment guibg=none
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+  highlight SignColumn guibg=none
+]])
 	end,
 }
 --]]

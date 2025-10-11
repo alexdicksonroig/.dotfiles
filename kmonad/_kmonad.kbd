@@ -1,8 +1,38 @@
+(defcfg
+  input (iokit-name)
+  output (kext)
+  fallthrough true)
+
+(defsrc
+esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+grv
+tab  q    w    e    r    t    y    u    i    o    p
+caps a    s    d    f    g    h    j    k    l    ;
+lsft z    x    c    v    b    n    m    ,    .    /
+fn   lalt lmet           spc            rmet)
+
+(defalias
+  shiftNext (around-next-single sft)
+  superShift (tap-hold 150 @shiftNext sft)
+  ly2 (layer-toggle ly2)
+  hr1 (tap-next @shiftNext @ly2)
+  hr2 (tap-hold 140 @shiftNext lmet)
+  hr3 (tap-next @shiftNext ctl)
+)
+
+(deflayer default
+  esc  brdn brup lp mctl bldn blup prev pp next mute vold volu
+  _
+  _    _    _    _    _    _    _    _    _    _    _
+  @hr3    _    _    _  _    _    _    _    _    _    _
+  @ly2    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _)
+
 (deflayer ly2
-  esc  brdn brup lp   mctl bldn blup prev pp   next mute vold volu
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  _  (around lsft 1)  (around lalt 2)    (around lalt 3)    (around lsft 4)    (around lsft 5)    {     ^     }    (around lsft 8)   (around lsft 9)  _ _ _
-  _  lbrc    ]    _    (around lsft 0)    -    \\    -    (around ralt ;)    {    (around lalt ñ)     _    _
-  _  #    :    _   ]    (around lsft 2)    (around lalt 1)    (around lsft -)    <    >    `    _ _
-  fn  lalt lctl           spc            rmet ralt left down rght)
+  _  _    _    _    _    _    _    _    _    _    _    _    _
+  _
+  _  !    @    #    $    %    ^    &    *    \(  \)
+  _  [    ]    =    '    _    \\   :   ?   {   }
+  _  _    `    +    "    ~    |    \_  -   <   >
+  _  _    _    _    _)
 
