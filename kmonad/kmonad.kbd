@@ -9,7 +9,7 @@ grv
 tab  q    w    e    r    t    y    u    i    o    p
 caps a    s    d    f    g    h    j    k    l    ;
 lsft z    x    c    v    b    n    m    ,    .    /
-fn   lalt lmet           spc            rmet)
+fn  ctl lalt lmet           spc            rmet)
 
 (defalias
   shiftNext (around-next-single sft)
@@ -18,21 +18,22 @@ fn   lalt lmet           spc            rmet)
   hr1 (tap-next @shiftNext @ly2)
   hr2 (tap-hold 140 @shiftNext lmet)
   hr3 (tap-next @shiftNext ctl)
+  hr4 (tap-next ; @ly2)
 )
 
 (deflayer default
   esc  brdn brup lp mctl bldn blup prev pp next mute vold volu
   _
   _    _    _    _    _    _    _    _    _    _    _
-  @hr3    _    _    _  _    _    _    _    _    _    _
-  @ly2    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _)
+  ctl    _    _    _  _    _    _    _    _    _    @ly2
+  _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _ _)
 
 (deflayer ly2
   _  _    _    _    _    _    _    _    _    _    _    _    _
   _
-  _  !    @    #    $    %    ^    &    *    \(  \)
-  _  [    ]    =    '    _    \\   :   ?   {   }
-  _  _    `    +    "    ~    |    \_  -   <   >
-  _  _    _    _    _)
+  _  !    @    #    $    %    ^    &    *    |  \\
+  _  {    }    =    '    `    ;   \(  \)    -   _
+  _  [    ]    +    "    ~    :    <    >   \_ _
+  _  _    _    _    _ _)
 
