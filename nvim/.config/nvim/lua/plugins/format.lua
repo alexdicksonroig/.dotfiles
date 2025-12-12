@@ -15,6 +15,16 @@ return {
 						args = { "--emit=stdout" },
 						stdin = true,
 					},
+                    biome = {
+    command = "steam-run",
+    args = { "biome", "format", "--stdin-file-path", "$FILENAME" },
+    stdin = true,
+  },
+  ["biome-organize-imports"] = {
+    command = "steam-run",
+    args = { "biome", "check", "--apply", "--stdin-file-path", "$FILENAME" },
+    stdin = true,
+  },
 				},
 				-- Map of filetype to formatters
 				formatters_by_ft = {
@@ -24,10 +34,11 @@ return {
 					-- Conform will run multiple formatters sequentially
 					go = { "goimports", "gofmt" },
 					-- Use a sub-list to run only the first available formatter
-					javascript = { "biome" },
-					javascriptreact = { "biome" },
-					typescript = { "biome" },
-					typescriptreact = { "biome" },
+
+					javascript = { "biome", "biome-organize-imports" },
+                    javascriptreact = { "biome", "biome-organize-imports" },
+                    typescript = { "biome", "biome-organize-imports" },
+                    typescriptreact = { "biome", "biome-organize-imports" },
 					css = { "biome" },
 					json = { "biome" },
 					html = { "biome" },

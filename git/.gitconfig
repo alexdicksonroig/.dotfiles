@@ -7,33 +7,13 @@
     ac = "!f() { git add . && git commit -m \"$1\"; }; f"
     acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
     update = "!f() { git fetch origin develop && git merge origin/develop; }; f"
-[core]
-    pager = delta
-	excludesfile = /Users/alexdickson3/.gitignore_global
-
-[interactive]
-    diffFilter = delta --color-only
-
-[delta]
-    navigate = true  # use n and N to move between diff sections
-    dark = true      # or light = true, or omit for auto-detection
 
 [merge]
     conflictstyle = zdiff3
+
 [push]
     autoSetupRemote = true
 
-
 [user]
-	name = Alex Dickson
 	email = alex.dickson@immfly.com
-[credential]
-	helper = osxkeychain
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-	template = /Users/alexdickson3/.stCommitMsg
+	name = Alex
