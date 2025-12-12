@@ -1,6 +1,7 @@
 auto-update=off
 font-size=12.0
-theme=Tokyonight
+theme = Tokyonight
 title="MacBook-Pro-de-infraestructura-9.local"
+window-padding-x = 4
 
 confirm-close-surface=false

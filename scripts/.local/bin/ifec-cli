@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# Function to prompt for input
+prompt_input() {
+    local prompt_message="$1"
+    local input_variable="$2"
+    read -p "$prompt_message: " $input_variable
+}
+
+# Prompt for inputs
+prompt_input "Enter the Jira ID (default: no-ticket)" jira_ticket_id
+prompt_input "Enter the airline IATA code (default: ALL)" airline_iata_code
+prompt_input "Enter the merge request title (without the IATA prefix, just white-space separated words). This will be used to create the branch name and the pr if chosen so later" mr_title
+prompt_input "Enter the target branch (default: develop)" target_branch
+
+# Use 'develop' if target branch is empty
+target_branch=${target_branch:-develop}
+
+# Set defaults if empty
+jira_ticket_id=${jira_ticket_id:-no-ticket}
+airline_iata_code=${airline_iata_code:-ALL}
+
+# Create lowercase version of mr_title for branch name
+mr_title_lowercase=$(echo "$mr_title" | tr '[:upper:]' '[:lower:]')
+
+# Create branch name (lowercase)
+branch_name="ifec-${jira_ticket_id}-$(echo "$mr_title_lowercase" | tr ' ' '-')"
+
+# Ask for confirmation before creating the branch
+read -p "Are you sure you want to create branch '$branch_name'? (y/n): " confirm_branch
+
+if [[ ! "$confirm_branch" =~ ^[Yy]$ ]]; then
+    echo "Branch creation canceled."
+    exit 0
+fi
+
+# Create new branch from current branch
+git checkout -b "$branch_name"
+
+# Push the new branch to remote
+git push -u origin "$branch_name"
+
+# Ask if the user wants to create the merge request
+read -p "Do you want to create the merge request? (y/n): " create_mr
+
+if [[ "$create_mr" =~ ^[Yy]$ ]]; then
+    # Construct the full MR title with the airline code and Jira ID (preserving original case)
+    full_mr_title="[${airline_iata_code}-${jira_ticket_id}] $mr_title"
+
+    # Create merge request using glab CLI
+    glab mr create \
+        --title "$full_mr_title" \
+        --description "Jira ticket: https://immfly.atlassian.net/browse/IFEC-$jira_ticket_id" \
+        --source-branch "$branch_name" \
+        --target-branch "$target_branch" \
+        --squash-before-merge \
+        --remove-source-branch \
+        --draft \
+        --yes
+
+    echo "Merge request created successfully!"
+else
+    echo "Merge request creation skipped."
+fi
+

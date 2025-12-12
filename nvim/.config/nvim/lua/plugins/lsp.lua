@@ -180,6 +180,29 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
+			tailwindcss = {
+				filetypes = {
+					"html",
+					"css",
+					"scss",
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact",
+					"svelte",
+					"vue",
+					"tsx",
+					"jsx",
+					"rescript",
+					"xml",
+					"php",
+					"markdown",
+					"astro",
+					"glimmer",
+					"handlebars",
+					"hbs",
+				},
+			},
 		}
 
 		-- Ensure the servers and tools above are installed

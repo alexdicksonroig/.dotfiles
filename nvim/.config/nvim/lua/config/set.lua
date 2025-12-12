@@ -9,6 +9,7 @@ vim.opt.expandtab = true
 vim.o.autoread = true
 -- Cursor
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
+vim.opt.cursorline = true
 -- Sync clipboard between OS and Neovim
 vim.opt.clipboard = "unnamedplus"
 

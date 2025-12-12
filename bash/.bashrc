@@ -8,3 +8,4 @@ alias vim="nvim +only -o"
 alias vpn="sudo openvpn --config ~/vpn/.config/config.ovpn"
 
 . $HOME/.env
+. "$HOME/.cargo/env"
