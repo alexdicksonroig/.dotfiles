@@ -8,7 +8,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.o.autoread = true
 -- Cursor
-vim.opt.guicursor = "n-v-i-c:block-Cursor/lCursor"
+vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i:ver25-Cursor/lCursor"
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
     vim.api.nvim_set_hl(0, "Cursor", { bg = "#888888", fg = "#000000" })
@@ -17,7 +17,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 vim.api.nvim_set_hl(0, "Cursor", { bg = "#888888", fg = "#000000" })
 vim.api.nvim_set_hl(0, "lCursor", { bg = "#888888", fg = "#000000" })
-vim.opt.cursorline = true
 -- Sync clipboard between OS and Neovim
 vim.opt.clipboard = "unnamedplus"
 
@@ -54,3 +53,4 @@ vim.opt.hlsearch = true
 --vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 --
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
