@@ -6,7 +6,7 @@
     stashy = git stash push -u --keep-index
     ac = "!f() { git add . && git commit -m \"$1\"; }; f"
     acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
-    update = "!f() { git fetch origin develop && git merge origin/develop; }; f"
+    update = "!f() { git checkout $1 && git pull origin $1 && git checkout - && git merge $1; }; f"
 
 [merge]
     conflictstyle = zdiff3

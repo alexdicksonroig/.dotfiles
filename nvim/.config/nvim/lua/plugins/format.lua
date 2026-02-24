@@ -15,16 +15,6 @@ return {
 						args = { "--emit=stdout" },
 						stdin = true,
 					},
-                    biome = {
-    command = "steam-run",
-    args = { "biome", "format", "--stdin-file-path", "$FILENAME" },
-    stdin = true,
-  },
-  ["biome-organize-imports"] = {
-    command = "steam-run",
-    args = { "biome", "check", "--apply", "--stdin-file-path", "$FILENAME" },
-    stdin = true,
-  },
 				},
 				-- Map of filetype to formatters
 				formatters_by_ft = {
@@ -34,24 +24,17 @@ return {
 					-- Conform will run multiple formatters sequentially
 					go = { "goimports", "gofmt" },
 					-- Use a sub-list to run only the first available formatter
-
-					javascript = { "biome", "biome-organize-imports" },
-                    javascriptreact = { "biome", "biome-organize-imports" },
-                    typescript = { "biome", "biome-organize-imports" },
-                    typescriptreact = { "biome", "biome-organize-imports" },
+					javascript = { "biome" },
+					javascriptreact = { "biome" },
+					typescript = { "biome" },
+					typescriptreact = { "biome" },
 					css = { "biome" },
 					json = { "biome" },
 					html = { "biome" },
 					markdown = { "biome" },
 					yaml = { "biome" },
 					-- You can use a function here to determine the formatters dynamically
-					python = function(bufnr)
-						if require("conform").get_formatter_info("ruff_format", bufnr).available then
-							return { "ruff_format" }
-						else
-							return { "isort", "black" }
-						end
-					end,
+					python = { "black" },
 					-- Use the "*" filetype to run formatters on all filetypes.
 					["*"] = { "codespell" },
 					-- Use the "_" filetype to run formatters on filetypes that don't
