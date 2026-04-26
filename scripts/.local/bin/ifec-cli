@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "IFEC CLI - Branch and Merge Request Creator"
 
 # Function to prompt for input
 prompt_input() {
@@ -34,6 +35,7 @@ if [[ ! "$confirm_branch" =~ ^[Yy]$ ]]; then
     exit 0
 fi
 
+git checkout "$target_branch" || { echo "Target branch '$target_branch' does not exist."; exit 1; }
 # Create new branch from current branch
 git checkout -b "$branch_name"
 

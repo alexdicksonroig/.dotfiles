@@ -3,6 +3,8 @@
     ignore = update-index --skip-worktree
     unignore = update-index --no-skip-worktree
     s = status
+    ds = diff --staged
+    d = diff
     stashy = git stash push -u --keep-index
     ac = "!f() { git add . && git commit -m \"$1\"; }; f"
     acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
@@ -10,6 +12,9 @@
 
 [merge]
     conflictstyle = zdiff3
+
+[core]
+    pager = delta
 
 [push]
     autoSetupRemote = true

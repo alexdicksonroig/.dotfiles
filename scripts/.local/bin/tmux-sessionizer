@@ -3,7 +3,19 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Projects ~/vpn  ~/.dotfiles /etc/nixos -mindepth 1 -maxdepth 1 | fzf)
+    selected=$(
+        {
+            for dir in "$HOME/Projects" "$HOME/vpn" "/etc/nixos"; do
+                if [[ -d $dir ]]; then
+                    find "$dir" -mindepth 1 -maxdepth 1
+                fi
+            done
+
+            if [[ -d $HOME/.dotfiles ]]; then
+                printf '%s\n' "$HOME/.dotfiles"
+            fi
+        } | fzf
+    )
 fi
 
 if [[ -z $selected ]]; then
@@ -16,32 +28,18 @@ if [[ -f $selected ]]; then
 fi
 
 selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-    exit 0
-fi
-
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
-    # Window 1: nvim (top) + shell (bottom)
-    tmux send-keys -t $selected_name:1 'nvim' Enter
-    tmux split-window -t $selected_name:1 -v -p 15 -c $selected
-    tmux select-pane -t $selected_name:1.0
-    # Window 2: claude (top) + shell (bottom)
-    tmux new-window -t $selected_name -c $selected
-    tmux split-window -t $selected_name:2 -v -p 55 -c $selected
-    tmux send-keys -t $selected_name:2.1 'codex' Enter
-    tmux select-pane -t $selected_name:2.0
-    tmux select-window -t $selected_name:1
+if ! tmux has-session -t "$selected_name" 2> /dev/null; then
+    tmux new-session -d -s "$selected_name" -n 'nvim (j)' -c "$selected"
+    tmux send-keys -t "$selected_name:1" 'nvim' Enter
+    tmux new-window -t "$selected_name" -n 'git (k)' -c "$selected"
+    tmux new-window -t "$selected_name" -n 'codex (l)' -c "$selected"
+    tmux send-keys -t "$selected_name:3" 'codex' Enter
+    tmux select-window -t "$selected_name:1"
 fi
 
 if [[ -z $TMUX ]]; then
-    echo $selected_name
-    tmux select-pane -t $selected_name:1.0
-    tmux attach-session -t $selected_name
+    tmux attach-session -t "$selected_name"
 else
-    tmux switch-client -t $selected_name
-    tmux select-pane -t $selected_name:1.0
+    tmux switch-client -t "$selected_name"
 fi

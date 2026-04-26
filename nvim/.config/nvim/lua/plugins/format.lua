@@ -23,16 +23,16 @@ return {
 					lua = { "stylua" },
 					-- Conform will run multiple formatters sequentially
 					go = { "goimports", "gofmt" },
-					-- Use a sub-list to run only the first available formatter
-					javascript = { "biome" },
-					javascriptreact = { "biome" },
-					typescript = { "biome" },
-					typescriptreact = { "biome" },
-					css = { "biome" },
-					json = { "biome" },
-					html = { "biome" },
-					markdown = { "biome" },
-					yaml = { "biome" },
+					-- Use the first available formatter
+					javascript = { "prettierd", "prettier", "biome", stop_after_first = true },
+					javascriptreact = { "prettierd", "prettier", "biome", stop_after_first = true },
+					typescript = { "prettierd", "prettier", "biome", stop_after_first = true },
+					typescriptreact = { "prettierd", "prettier", "biome", stop_after_first = true },
+					css = { "prettierd", "prettier", "biome", stop_after_first = true },
+					json = { "prettierd", "prettier", "biome", stop_after_first = true },
+					html = { "prettierd", "prettier", "biome", stop_after_first = true },
+					markdown = { "prettierd", "prettier", "biome", stop_after_first = true },
+					yaml = { "prettierd", "prettier", "biome", stop_after_first = true },
 					-- You can use a function here to determine the formatters dynamically
 					python = { "black" },
 					-- Use the "*" filetype to run formatters on all filetypes.
@@ -48,7 +48,7 @@ return {
 					-- I recommend these options. See :help conform.format for details.
 					lsp_format = true,
 					async = false,
-					timeout_ms = 500,
+					timeout_ms = 2000,
 				},
 				-- If this is set, Conform will run the formatter asynchronously after save.
 				-- It will pass the table to conform.format().
@@ -66,7 +66,7 @@ return {
 				require("conform").format({
 					lsp_fallback = true,
 					async = false,
-					timeout_ms = 500,
+					timeout_ms = 2000,
 				})
 			end)
 		end,

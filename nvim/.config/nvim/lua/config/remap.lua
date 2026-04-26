@@ -20,3 +20,11 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true })
+
+-- Console log helper
+vim.keymap.set(
+	"n",
+	"<leader>cl",
+	"console.log()<Esc>ha",
+	{ noremap = true, silent = true, desc = "Insert console.log()" }
+)
