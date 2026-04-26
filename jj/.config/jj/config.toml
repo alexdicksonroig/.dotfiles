@@ -1,0 +1,12 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "Alex Dickson"
+email = "alex.dickson@immfly.com"
+
+[ui]
+diff-formatter = ":git"
+pager = "delta"
+
+[git]
+auto-local-bookmark = true
