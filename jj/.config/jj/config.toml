@@ -6,7 +6,8 @@ email = "alex.dickson@immfly.com"
 
 [ui]
 diff-formatter = ":git"
-pager = "delta"
+pager = ["delta", "--pager", "less -FRX"]
+default-command = "log"
 
 [git]
 auto-local-bookmark = true
