@@ -23,8 +23,8 @@ eval "$(atuin init bash)"
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 bind '"\e[A": history-search-backward'
 
-# Show current time in green and the working directory in the prompt.
-export PS1='\[\e[32m\]\A\[\e[0m\] \w \$ '
+# Show current time in green brackets and the working directory in the prompt.
+export PS1='\[\e[32m\][\A]\[\e[0m\] \w \$ '
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

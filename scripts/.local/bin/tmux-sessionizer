@@ -3,6 +3,12 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
+    if [[ $(defaults read -g AppleInterfaceStyle 2> /dev/null) == Dark ]]; then
+        fzf_color='bg:-1,bg+:#1f2933,gutter:-1,fg:#d0d0d0,fg+:#ffffff,hl:#7dcfff,hl+:#7dcfff,prompt:#7dcfff,pointer:#ff9e64'
+    else
+        fzf_color='bg:-1,bg+:#e8dfd2,gutter:-1,fg:#1f2933,fg+:#111111,hl:#2f6f9f,hl+:#2f6f9f,prompt:#2f6f9f,pointer:#d14d72'
+    fi
+
     selected=$(
         {
             for dir in "$HOME/Projects" "$HOME/vpn" "/etc/nixos"; do
@@ -14,7 +20,7 @@ else
             if [[ -d $HOME/.dotfiles ]]; then
                 printf '%s\n' "$HOME/.dotfiles"
             fi
-        } | fzf
+        } | fzf --color="$fzf_color"
     )
 fi
 
@@ -30,10 +36,10 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 
 if ! tmux has-session -t "$selected_name" 2> /dev/null; then
-    tmux new-session -d -s "$selected_name" -n 'nvim (j)' -c "$selected"
+    tmux new-session -d -s "$selected_name" -n 'nvim (h)' -c "$selected"
     tmux send-keys -t "$selected_name:1" 'nvim' Enter
-    tmux new-window -t "$selected_name" -n 'git (k)' -c "$selected"
-    tmux new-window -t "$selected_name" -n 'codex (l)' -c "$selected"
+    tmux new-window -t "$selected_name" -n 'git (j)' -c "$selected"
+    tmux new-window -t "$selected_name" -n 'codex (k)' -c "$selected"
     tmux send-keys -t "$selected_name:3" 'codex' Enter
     tmux select-window -t "$selected_name:1"
 fi

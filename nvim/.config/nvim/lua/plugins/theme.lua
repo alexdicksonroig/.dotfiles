@@ -13,8 +13,35 @@ return { -- You can easily change to a different colorscheme.
 	"folke/tokyonight.nvim",
 	priority = 1000, -- Make sure to load this before all the other start plugins.
 	init = function()
-		vim.cmd.colorscheme("tokyonight")
-		vim.cmd([[
+		local function system_appearance()
+			if vim.fn.has("macunix") == 1 then
+				local output = vim.fn.system({ "defaults", "read", "-g", "AppleInterfaceStyle" })
+				return vim.v.shell_error == 0 and output:match("Dark") and "dark" or "light"
+			end
+
+			return "dark"
+		end
+
+		local function apply_theme()
+			local appearance = system_appearance()
+			local colorscheme = appearance == "light" and "tokyonight-day" or "tokyonight"
+
+			if vim.o.background == appearance and vim.g.colors_name == colorscheme then
+				return
+			end
+
+			vim.o.background = appearance
+			vim.cmd.colorscheme(colorscheme)
+			if appearance == "light" then
+				vim.cmd([[
+  highlight Comment guibg=none
+  highlight Normal guibg=#ffffff ctermbg=white
+  highlight NormalFloat guibg=#ffffff ctermbg=white
+  highlight NonText guibg=#ffffff ctermbg=white
+  highlight SignColumn guibg=#ffffff ctermbg=white
+]])
+			else
+				vim.cmd([[
   highlight Comment guibg=none
   highlight Normal guibg=none
   highlight NonText guibg=none
@@ -22,6 +49,16 @@ return { -- You can easily change to a different colorscheme.
   highlight NonText ctermbg=none
   highlight SignColumn guibg=none
 ]])
+			end
+		end
+
+		apply_theme()
+
+		vim.api.nvim_create_autocmd({ "FocusGained", "VimResume" }, {
+			desc = "Follow system appearance for the colorscheme",
+			group = vim.api.nvim_create_augroup("system-appearance-colorscheme", { clear = true }),
+			callback = apply_theme,
+		})
 	end,
 }
 --]]
