@@ -1,6 +1,7 @@
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
+tmux() { if (($#)); then command tmux "$@"; else command tmux new-session -A -s 0; fi; }
 . "$HOME/.cargo/env"
 
 # Added by OrbStack: command-line tools and integration
