@@ -6,14 +6,13 @@ email = "alex.dickson@immfly.com"
 
 [ui]
 default-command = "show"
-diff-formatter = ":git"
-pager = ["delta", "--pager", "less -FRX"]
 
 [aliases]
 b = ["branch"]
 n = ["new"]
 f = ["git", "fetch"]
 d = ["describe", "-m"]
+l = ["log", "-T", "description"]
 
 # Move the closest bookmark to the current commit. This is useful when
 # working on a named branch, creating a bunch of commits, and then needing

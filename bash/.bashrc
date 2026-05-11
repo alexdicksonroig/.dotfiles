@@ -1,3 +1,4 @@
+export PATH="/Users/alexdickson3/.local/bin:$PATH"
 shopt -s histappend
 export HISTSIZE=100000
 export HISTFILESIZE=100000
@@ -10,6 +11,8 @@ export PATH="/opt/homebrew/opt/llvm@12/bin:/opt/homebrew/bin:/opt/homebrew/sbin:
 alias vim="nvim +only -o"
 
 alias vpn="sudo openvpn --config ~/vpn/.config/config.ovpn"
+alias hd="hunk diff"
+alias oc="opencode"
 
 if [[ -f "$HOME/.env" ]]; then
   set -a
@@ -17,13 +20,13 @@ if [[ -f "$HOME/.env" ]]; then
   set +a
 fi
 . "$HOME/.cargo/env"
-. "$HOME/.atuin/bin/env"
-eval "$(atuin init bash)"
 
+. "$HOME/.atuin/bin/env"
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 bind '"\e[A": history-search-backward'
 
-# Show current time in green brackets and the working directory in the prompt.
+# Show current time in green and the working directory in the prompt.
+
 export PS1='\[\e[32m\][\A]\[\e[0m\] \w \$ '
 
 export NVM_DIR="$HOME/.nvm"
@@ -32,3 +35,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # opencode
 export PATH=/Users/alexdickson3/.opencode/bin:$PATH
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
+
+bind '"\e[A": history-search-backward'
