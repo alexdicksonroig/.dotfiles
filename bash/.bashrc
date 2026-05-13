@@ -11,7 +11,7 @@ export PATH="/opt/homebrew/opt/llvm@12/bin:/opt/homebrew/bin:/opt/homebrew/sbin:
 alias vim="nvim +only -o"
 
 alias vpn="sudo openvpn --config ~/vpn/.config/config.ovpn"
-alias hd="hunk diff"
+alias hd="hunk diff --watch"
 alias oc="opencode"
 
 if [[ -f "$HOME/.env" ]]; then
@@ -42,3 +42,7 @@ export PATH=/Users/alexdickson3/.opencode/bin:$PATH
 eval "$(atuin init bash)"
 
 bind '"\e[A": history-search-backward'
+
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init bash)"
+fi

@@ -1,0 +1,8 @@
+[directory]
+style = "white"
+
+[custom.jj]
+when = "jj-starship detect"
+shell = ["jj-starship", "--no-color"]
+format = "[$output ]($style)"
+style = "bold purple"
