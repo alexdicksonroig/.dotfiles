@@ -9,9 +9,14 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="/opt/homebrew/opt/llvm@12/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:$HOME/.local/bin/helix-25.01.1-aarch64-macos/:$PATH"
 
 alias vim="nvim +only -o"
+alias j="jj"
 
 alias vpn="sudo openvpn --config ~/vpn/.config/config.ovpn"
-alias hd="hunk diff --watch"
+hd() {
+  local theme="paper"
+  [[ $(defaults read -g AppleInterfaceStyle 2>/dev/null) == Dark ]] && theme="midnight"
+  hunk diff --watch --theme "$theme" "$@"
+}
 alias oc="opencode"
 
 if [[ -f "$HOME/.env" ]]; then
@@ -46,3 +51,5 @@ bind '"\e[A": history-search-backward'
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init bash)"
 fi
+
+alias hcp='hunk session context --repo . --json | jq -r ".context.selectedFile.path" | pbcopy'

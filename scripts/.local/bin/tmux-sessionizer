@@ -36,11 +36,11 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 
 if ! tmux has-session -t "$selected_name" 2> /dev/null; then
-    tmux new-session -d -s "$selected_name" -n 'nvim (h)' -c "$selected"
+    tmux new-session -d -s "$selected_name" -n 'nvim' -c "$selected"
     tmux send-keys -t "$selected_name:1" 'nvim' Enter
-    tmux new-window -t "$selected_name" -n 'git (j)' -c "$selected"
-    tmux new-window -t "$selected_name" -n 'codex (k)' -c "$selected"
-    tmux send-keys -t "$selected_name:3" 'codex' Enter
+    tmux new-window -t "$selected_name" -n 'vcs' -c "$selected"
+    tmux new-window -t "$selected_name" -n 'ai' -c "$selected"
+    tmux send-keys -t "$selected_name:3" 'pi' Enter
     tmux select-window -t "$selected_name:1"
 fi
 

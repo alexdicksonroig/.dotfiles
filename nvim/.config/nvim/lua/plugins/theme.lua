@@ -32,24 +32,14 @@ return { -- You can easily change to a different colorscheme.
 
 			vim.o.background = appearance
 			vim.cmd.colorscheme(colorscheme)
-			if appearance == "light" then
-				vim.cmd([[
+			vim.cmd([[
   highlight Comment guibg=none
-  highlight Normal guibg=#ffffff ctermbg=white
-  highlight NormalFloat guibg=#ffffff ctermbg=white
-  highlight NonText guibg=#ffffff ctermbg=white
-  highlight SignColumn guibg=#ffffff ctermbg=white
+  highlight Normal guibg=none ctermbg=none
+  highlight NormalFloat guibg=none ctermbg=none
+  highlight NonText guibg=none ctermbg=none
+  highlight SignColumn guibg=none ctermbg=none
+  highlight EndOfBuffer guibg=none ctermbg=none
 ]])
-			else
-				vim.cmd([[
-  highlight Comment guibg=none
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-  highlight SignColumn guibg=none
-]])
-			end
 		end
 
 		apply_theme()

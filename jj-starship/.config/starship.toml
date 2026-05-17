@@ -1,5 +1,14 @@
 [directory]
 style = "white"
+truncation_length = 0
+truncate_to_repo = false
+
+[git_branch]
+disabled = true
+
+[git_commit]
+disabled = true
+
 
 [custom.jj]
 when = "jj-starship detect"

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+appearance=light
+if [[ $(defaults read -g AppleInterfaceStyle 2>/dev/null || true) == Dark ]]; then
+    appearance=dark
+fi
+
+current=$(tmux show-option -gqv @system_appearance 2>/dev/null || true)
+if [[ ${1:-apply} == status && $current == "$appearance" ]]; then
+    exit 0
+fi
+
+if [[ $appearance == dark ]]; then
+    tmux set -g @system_appearance dark \; \
+        set -g pane-active-border-style "fg=cyan" \; \
+        set -g status-style "bg=default,fg=default" \; \
+        set-option -g message-style "fg=default,bg=default" \; \
+        setw -g window-status-current-format " #I#[fg=colour255]:#[fg=colour255]#W#[fg=colour203]#F " \; \
+        setw -g window-status-format " #I#[fg=colour255]:#[fg=colour250]#W#[fg=colour244]#F "
+else
+    tmux set -g @system_appearance light \; \
+        set -g pane-active-border-style "fg=#2f6f9f" \; \
+        set -g status-style "bg=default,fg=#403a35" \; \
+        set-option -g message-style "fg=#1f2933,bg=default" \; \
+        setw -g window-status-current-format " #I#[fg=#111111]:#[fg=#111111]#W#[fg=#d14d72]#F " \; \
+        setw -g window-status-format " #I#[fg=#58524b]:#[fg=#403a35]#W#[fg=#a09a93]#F "
+fi

@@ -15,7 +15,7 @@
 
 [core]
     pager = delta
-	excludesFile = ~/.gitignore
+	excludesfile = /Users/alexdickson3/.gitignore
 
 [push]
     autoSetupRemote = true

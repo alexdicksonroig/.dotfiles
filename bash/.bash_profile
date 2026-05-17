@@ -10,3 +10,7 @@ source ~/.orbstack/shell/init.bash 2>/dev/null || :
 
 
 . "$HOME/.atuin/bin/env"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/alexdickson3/.local/bin:$PATH"
