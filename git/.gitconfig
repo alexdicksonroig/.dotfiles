@@ -10,12 +10,17 @@
     acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
     update = "!f() { git checkout $1 && git pull origin $1 && git checkout - && git merge $1; }; f"
 
-[merge]
-    conflictstyle = zdiff3
-
 [core]
     pager = delta
 	excludesfile = /Users/alexdickson3/.gitignore
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+[merge]
+    conflictStyle = zdiff3
 
 [push]
     autoSetupRemote = true

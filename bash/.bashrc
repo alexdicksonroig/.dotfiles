@@ -10,6 +10,7 @@ export PATH="/opt/homebrew/opt/llvm@12/bin:/opt/homebrew/bin:/opt/homebrew/sbin:
 
 alias vim="nvim +only -o"
 alias j="jj"
+alias g="git"
 
 alias vpn="sudo openvpn --config ~/vpn/.config/config.ovpn"
 hd() {

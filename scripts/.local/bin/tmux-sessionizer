@@ -11,7 +11,7 @@ else
 
     selected=$(
         {
-            for dir in "$HOME/Projects" "$HOME/vpn" "/etc/nixos"; do
+            for dir in "$HOME/Projects" "$HOME/vpn" "/etc/nixos" "$HOME/.dotfiles" ; do
                 if [[ -d $dir ]]; then
                     find "$dir" -mindepth 1 -maxdepth 1
                 fi
@@ -36,12 +36,10 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 
 if ! tmux has-session -t "$selected_name" 2> /dev/null; then
-    tmux new-session -d -s "$selected_name" -n 'nvim' -c "$selected"
-    tmux send-keys -t "$selected_name:1" 'nvim' Enter
-    tmux new-window -t "$selected_name" -n 'vcs' -c "$selected"
-    tmux new-window -t "$selected_name" -n 'ai' -c "$selected"
-    tmux send-keys -t "$selected_name:3" 'pi' Enter
-    tmux select-window -t "$selected_name:1"
+    tmux new-session -d -s "$selected_name" -n 'jj' -c "$selected"
+    tmux new-window -t "$selected_name" -n 'pi' -c "$selected"
+    tmux send-keys -t "$selected_name:pi" 'pi' Enter
+    tmux select-window -t "$selected_name:jj"
 fi
 
 if [[ -z $TMUX ]]; then

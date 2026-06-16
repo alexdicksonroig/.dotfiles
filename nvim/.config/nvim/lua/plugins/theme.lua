@@ -32,14 +32,6 @@ return { -- You can easily change to a different colorscheme.
 
 			vim.o.background = appearance
 			vim.cmd.colorscheme(colorscheme)
-			vim.cmd([[
-  highlight Comment guibg=none
-  highlight Normal guibg=none ctermbg=none
-  highlight NormalFloat guibg=none ctermbg=none
-  highlight NonText guibg=none ctermbg=none
-  highlight SignColumn guibg=none ctermbg=none
-  highlight EndOfBuffer guibg=none ctermbg=none
-]])
 		end
 
 		apply_theme()

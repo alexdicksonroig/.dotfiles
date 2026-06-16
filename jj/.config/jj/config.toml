@@ -7,16 +7,26 @@ email = "alex.dickson@immfly.com"
 [ui]
 default-command = "show"
 editor = "vim"
-pager = ["sh", "-c", "delta --detect-dark-light=auto --paging=never | less -RFX"]
+# Make jj emit git-style diffs, which delta understands best.
 diff-formatter = ":git"
+pager = "jj-delta"
 
 [aliases]
+".." = ["edit", "@-"]
+",," = ["edit", "@+"]
+
 b = ["branch"]
 n = ["new"]
+fetch = ["git", "fetch"]
 f = ["git", "fetch"]
+push = ["git", "push"]
+p = ["git", "push"]
+clone = ["git", "clone"]
+cl = ["git", "clone"]
 d = ["describe", "-m"]
 l = ["log", "-T", "description"]
 s = ["squash"]
+a = ["abandon"]
 
 # Move the closest bookmark to the current commit. This is useful when
 # working on a named branch, creating a bunch of commits, and then needing

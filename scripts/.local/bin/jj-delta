@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# delta can auto-detect light/dark colors, but it cannot automatically switch
+# syntax themes. Pick a light/dark syntax theme here, then run delta.
+appearance=light
+if [[ $(defaults read -g AppleInterfaceStyle 2>/dev/null || true) == Dark ]]; then
+    appearance=dark
+fi
+
+if [[ $appearance == light ]]; then
+    exec delta --navigate --light --syntax-theme=GitHub "$@"
+else
+    exec delta --navigate --dark --syntax-theme="Monokai Extended" "$@"
+fi

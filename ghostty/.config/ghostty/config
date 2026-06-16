@@ -1,6 +1,7 @@
 font-size=14.0
-theme = light:Catppuccin Latte,dark:TokyoNight Night
+theme = light:Aizen Light,dark:TokyoNight Night
 window-padding-x = 8
 title = Ghostty
 
 confirm-close-surface=false
+macos-icon = blueprint

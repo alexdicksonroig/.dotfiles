@@ -19,6 +19,29 @@ fn  ctl lalt lmet           spc            rmet)
   hr2 (tap-hold 140 @shiftNext lmet)
   hr3 (tap-next @shiftNext ctl)
   hr4 (tap-next ; @ly2)
+
+  ;; Shifted symbols with around-only release Shift as soon as another key
+  ;; is pressed, preventing shifted rollover without using macros.
+  excl (around-only sft 1)
+  at (around-only sft 2)
+  hash (around-only sft 3)
+  dollar (around-only sft 4)
+  percent (around-only sft 5)
+  caret (around-only sft 6)
+  amp (around-only sft 7)
+  star (around-only sft 8)
+  pipe (around-only sft \\)
+  lbrace (around-only sft [)
+  rbrace (around-only sft ])
+  colon (around-only sft ;)
+  lparen (around-only sft 9)
+  rparen (around-only sft 0)
+  under (around-only sft -)
+  plus (around-only sft =)
+  dquote (around-only sft ')
+  tilde (around-only sft grv)
+  lt (around-only sft ,)
+  gt (around-only sft .)
 )
 
 (deflayer default
@@ -32,8 +55,8 @@ fn  ctl lalt lmet           spc            rmet)
 (deflayer ly2
   _  _    _    _    _    _    _    _    _    _    _    _    _
   _
-  _  !    @    #    $    %    ^    &    *    |  \\
-  _  {    }    =    '    `    :   \(  \)     -   _
-  _  [    ]    +    "    ~    ;    <    >   \_  _
+  _  @excl @at  @hash @dollar @percent @caret @amp @star @pipe \\
+  _  [ ] =    '    `    @colon @lparen @rparen -   @under
+  _  @lbrace @rbrace  @plus @dquote @tilde ;    @lt  @gt  @under _
   _  _    _    _    _ _)
 

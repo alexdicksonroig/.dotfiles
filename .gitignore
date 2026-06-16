@@ -1,3 +1,4 @@
 .env
 **/.env
-./scripts/.local/bin/kmonad
+scripts/.local/bin/kmonad
+scripts/.local/bin/agy
