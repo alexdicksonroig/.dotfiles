@@ -1,6 +1,6 @@
 (defcfg
-  input (iokit-name)
-  output (kext)
+  input  (device-file "/dev/input/event0")
+  output (uinput-sink "MyVirtualKeyboard")
   fallthrough true)
 
 (defsrc
