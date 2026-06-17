@@ -1,6 +1,6 @@
 (defcfg
-  input  (device-file "/dev/input/event0")
-  output (uinput-sink "MyVirtualKeyboard")
+  input (iokit-name)
+  output (kext)
   fallthrough true)
 
 (defsrc
@@ -56,7 +56,7 @@ fn  ctl lalt lmet           spc            rmet)
   _  _    _    _    _    _    _    _    _    _    _    _    _
   _
   _  @excl @at  @hash @dollar @percent @caret @amp @star @pipe \\
-  _  @lbrace @rbrace =    '    `    ;   @lparen @rparen -   @under
-  _  [    ]    @plus @dquote @tilde @colon @lt  @gt  @under _
+  _  [ ] =    '    `    @colon @lparen @rparen -   @under
+  _  @lbrace @rbrace  @plus @dquote @tilde ;    @lt  @gt  @under _
   _  _    _    _    _ _)
 
