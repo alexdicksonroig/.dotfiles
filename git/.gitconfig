@@ -7,24 +7,18 @@
     d = diff
     stashy = git stash push -u --keep-index
     ac = "!f() { git add . && git commit -m \"$1\"; }; f"
-    acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
-    update = "!f() { git checkout $1 && git pull origin $1 && git checkout - && git merge $1; }; f"
+    acp = "!f() { git add . && git commit -m \"$1\" && git push -f; }; f"
+    update = "!f() { git checkout $1 && git pull origin $1 && git checkout - && git rebase $1; }; f"
 
 [core]
-    pager = delta
 	excludesfile = /Users/alexdickson3/.gitignore
+    attributesfile = /Users/alexdickson3/.gitattributes_global
+	pager = delta
 
-[interactive]
-    diffFilter = delta --color-only
-
-[delta]
-    navigate = true  # use n and N to move between diff sections
-[merge]
-    conflictStyle = zdiff3
 
 [push]
     autoSetupRemote = true
 
 [user]
-	email = alex.dickson@immfly.com
-	name = Alex
+	email = alexdicksonroig@gmail.com
+	name = alexdicksonroig

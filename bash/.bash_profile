@@ -14,3 +14,6 @@ source ~/.orbstack/shell/init.bash 2>/dev/null || :
 
 # Added by Antigravity CLI installer
 export PATH="/Users/alexdickson3/.local/bin:$PATH"
+
+# Vite+ bin (https://viteplus.dev)
+. "/Users/alexdickson3/.config/vite-plus/env"

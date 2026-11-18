@@ -29,15 +29,19 @@ fi
 
 selected_name=$(basename "$selected" | tr . _)
 
-if ! tmux has-session -t "$selected_name" 2> /dev/null; then
-    tmux new-session -d -s "$selected_name" -n 'jj' -c "$selected"
-    tmux new-window -t "$selected_name" -n 'pi' -c "$selected"
-    tmux send-keys -t "$selected_name:pi" 'pi' Enter
-    tmux select-window -t "$selected_name:jj"
+# Use exact tmux targets (=session) so sessions with shared prefixes
+# (e.g. "foo" and "foobar") don't match the wrong session.
+if ! tmux has-session -t "=$selected_name" 2> /dev/null; then
+    tmux new-session -d -s "$selected_name" -n 'bash' -c "$selected" 'bash'
+      # tmux new-window -t "=$selected_name" -n 'git' -c "$selected"
+      # tmux new-window -t "=$selected_name" -n 'codex' -c "$selected"
+      # tmux send-keys -t "=$selected_name:codex" 'pi' Enter
+      # tmux select-window -t "=$selected_name:jj"
+      # tmux new-window -t "=$selected_name" -n 'bash' -c "$selected"
 fi
 
 if [[ -z $TMUX ]]; then
-    tmux attach-session -t "$selected_name"
+    tmux attach-session -t "=$selected_name"
 else
-    tmux switch-client -t "$selected_name"
+    tmux switch-client -t "=$selected_name"
 fi

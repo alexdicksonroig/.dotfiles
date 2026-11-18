@@ -1,2 +1,5 @@
 [directory]
 style = "white"
+
+[line_break]
+disabled = true

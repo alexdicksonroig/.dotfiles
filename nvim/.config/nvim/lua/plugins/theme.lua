@@ -12,6 +12,11 @@ return { -- You can easily change to a different colorscheme.
 	-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 	"folke/tokyonight.nvim",
 	priority = 1000, -- Make sure to load this before all the other start plugins.
+	opts = {
+		on_highlights = function(hl)
+			hl.diffAdded.bg, hl.diffRemoved.bg, hl.diffChanged.bg = nil, nil, nil
+		end,
+	},
 	init = function()
 		local function system_appearance()
 			if vim.fn.has("macunix") == 1 then

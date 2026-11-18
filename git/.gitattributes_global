@@ -1,0 +1,2 @@
+# Hide diffs for files with "spec" in the filename.
+*spec* diff=nospec

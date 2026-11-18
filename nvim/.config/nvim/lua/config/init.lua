@@ -17,6 +17,21 @@ vim.cmd([[
   autocmd TextChanged * if &buftype == '' | update | endif
 ]])
 
+-- Show a compact save message without quotes around the filename
+vim.api.nvim_create_autocmd("BufWritePost", {
+	group = vim.api.nvim_create_augroup("compact-save-message", { clear = true }),
+	callback = function(event)
+		local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(event.buf), ":t")
+		local lines = vim.api.nvim_buf_line_count(event.buf)
+		local stat = vim.uv.fs_stat(vim.api.nvim_buf_get_name(event.buf))
+		local bytes = stat and stat.size or 0
+
+		vim.schedule(function()
+			vim.api.nvim_echo({ { string.format("%s %dL, %dB written", name, lines, bytes) } }, false, {})
+		end)
+	end,
+})
+
 -- Copy current path relative to the project root
 vim.api.nvim_create_user_command("Cppath", function()
 	local path = vim.fn.expand("%:p")
